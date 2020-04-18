@@ -1,225 +1,200 @@
-# Rosa Reynoso
-# Integration Project: Brain Challenger!
-# It is a mini quiz that makes players think and helps to workout their brain. Simple but still makes you think.
+"""
+Integration Project: Brain Challenger!
+"""
+__author__ = "Rosa Reynoso"
 
 
-#welcoming players to the quiz and explains what the game is for
-print("Welcome to Brain Challenger!")
-import time #source: geeksforgeeks.org : time functions in python
-time.sleep(1)#source: geeksforgeeks.org : time functions in python
-# time is used throughout my project
-player_name = input("What is your name?")
-print("Hi," + player_name + "!This game will consist of 10 questions, mainly about math, that will make you think.") #explains what the game is about
-time.sleep(2)
-
-#imports time to allow a couple of seconds before the next line appears
-time.sleep(1) #allows 1 second before the next line appears
-begin_game = int(input("Enter 1 when you're ready to begin.")) #user enters 1 to begin game
-if  begin_game == 1: #when use is ready to play, rules are displayed next.
-    print("Great! Please try your best to answer these questions mentally and without help.")
-else:
-    print(input("Error. Please type 1 to begin.")) #just in case they accidently input something else
-time.sleep(2)
+import time
 
 
-score = 0 #sets the score to zero; used to find the final score
+def main():
+    print("Welcome to Brain Challenger!")
+    time.sleep(1)
+    player_name = input("What is your name?")
+    print("Hi," + player_name + "!This game will consist of 10 random "
+                                "questions that will make you think.")
+    time.sleep(2)
 
-# Question 1
-question_1 = int(input("1. Divide 46 in half and add 12. What is the answer?")) #question and then asks for the answer
-question1_answer = 35 #answer to Q1
-#if and else statements to determine the output for wrong and right answers
-if question_1 == question1_answer: #tells player when they are correct or wrong
-    print("Correct!")
-    score += 1 #each time the player answers a question correctly, 1 will be added to their 'score'
-else:
-    print("Sorry,the correct answer is 35.")
-time.sleep(1)#allows a second before next line. So it doesn't all display so fast and jumbled up
+    time.sleep(1)
+    begin_game = input("Enter 1 when you're ready to begin.")
+    if begin_game == '1':
+        print("Great! Please try your best to answer these questions "
+              "mentally and without help.")
+    elif begin_game != '1':
+        print(input("Error. Please type 1 to begin."))
+    time.sleep(2)
 
+    score = 0
 
-# Question 2
-question_2 = int(input("2. What is 64 to the .5 power?")) #question
-question2_answer = 8 #answer
-if question_2 == question2_answer: #tells them if they're right or wrong
-    print("Correct!")
-    score += 1 #player answers a question correctly: 1 added to their 'score'
-else:
-    print("Sorry, the correct answer is 8.")
-time.sleep(1) #time in seconds
+    # Question 1
+    question_1 = input("1. How many sides does a pentagon have? Enter a "
+                       "number. ")
+    question1_answer = '5'
+    if question_1 == question1_answer:
+        print("Correct!")
+        score += 1
+    else:
+        print("Sorry, a pentagon has 5 sides.")
+    time.sleep(1)
 
+    # Question 2
+    question_2 = input("2. Divide 46 in half and add 12. What is the "
+                       "answer? Enter a number.")
+    question2_answer = '35'
 
-# Question 3
-# Riddle
-question_3 = input("3. Johnny’s mother had three children. The first child was named April. The second child was named May. What was the third child’s name?")#Q3
-answer = 'johnny'
-answer2= 'Johnny'
-if question_3 == answer or question_3 == answer2: #tells them if they're right or wrong
-    print("YES! Good job on paying attention!")
-    score += 1 #player answers a question correctly: 1 added to their 'score'
-else:
-    print("The third child's name is actually Johnny.Tricky huh?")
-time.sleep(1)
+    if question_2 == question2_answer:
+        print("Correct!")
+        score += 1
+    else:
+        print("Sorry,the correct answer is 35.")
+    time.sleep(1)
 
+    # Question 3
+    question_3 = input("3. Johnny’s mother had three children. The "
+                       "first child was named April. The second child was "
+                       "named May. What was the third child’s name? Enter "
+                       "one name.")
+    q3_answer1 = 'johnny'
+    q3_answer2 = 'Johnny'
+    if question_3 == q3_answer1 or question_3 == q3_answer2:
+        print("YES! Good job on paying attention!")
+        score += 1
+    else:
+        print("The third child's name is actually Johnny.Tricky huh?")
+    time.sleep(1)
 
-# Question 4
-print("4.") # to ensure player knows what number they're on
-row = 7
-column = 6
-start = 1
-for x in range(row):
- #prints the columns and rows indicated
-    for x in range(column):
-        print(1, end=" ")
-    start += 1
-    print()
-time.sleep(1)
+    # Question 4
+    print("4.")
+    row = 7
+    column = 6
+    start = 1
+    for x in range(row):
+        for i in range(column):
+            print(1, end=" ")
+        start += 1
+        print()
+    time.sleep(1)
 
-question4_1 = int(input("4a. How many columns are there?")) #first part of question 4
-question4_1answer = 6 #answer for part 1
-time.sleep(1) # time before new question
+    question4a = input("4a. How many columns are there? Enter a number.")
+    # first part of question 4
+    question4a_answer = '6'
+    time.sleep(1)
 
-question4_2 = int(input("4b. How many rows are there?"))# second part of question 4
-question4_2answer = 7 #answer for part 2
+    question4b = input("4b. How many rows are there? Enter a number.")
+    # second part of question 4
+    question4b_answer = '7'
 
-#if and else statements to determine the output for wrong and right answers
-if question4_1 == question4_1answer and question4_2 == question4_2answer:
-    print("Correct!")
-    score += 1 #player answers a question correctly: 1 added to their 'score'
-else:
-    print("Not quite.")
-    print("There are actually 6 columns and 7 rows displayed.") # tells them the right answer
-time.sleep(2) #seconds
+    if question4a == question4a_answer and question4b == question4b_answer:
+        print("Correct!")
+        score += 1
+    else:
+        print("Not quite.")
+        print("There are actually 6 columns and 7 rows displayed.")
+    time.sleep(2)
 
+    # Question 5
+    print("5. A square has a side that measures 4.")
+    print("The perimeter of the square is", 4 * 4)
+    time.sleep(2)
 
-# Question 5
-# prints input multiple times
-favorite_animal = input("5. Enter the name of your favorite animal: ")
-x = 1 #set to 1 to begin
-while x < 18: # as long as x is less than 18 it will keep looping and printing the input
-    print(favorite_animal)
-    x = x + 1
-counting = int(input("How many times is the word repeated? Try not to count 1 by 1 and do not lean into the screen.")) #qurestion and rules
-question_5answer = 17 #answer
+    question_5 = input("Is this True or False? Enter T or F.")
+    q5_answer1 = 'T'
+    q5_answer2 = 't'
 
-#if and else statements to determine the output for wrong and right answers
-if counting == question_5answer:
-    print("Correct!")
-    score += 1 #player answers a question correctly: 1 added to their 'score'
-elif counting >= 15:
-    print("So close! It was repeated 17 times. Don't worry if you got it wrong, it's easy to get lost.") #encouragement
-else:
-    print("It was repeated 17 times. Don't worry if you got it wrong, it's easy to get lost.") #answer and encouragement
-time.sleep(1)
+    if question_5 == q5_answer1 or question_5 == q5_answer2:
+        print("Correct!")
+        score += 1
+    else:
+        print("Incorrect. Remember that perimeter is the sum of all sides.")
+    time.sleep(1)
 
-# Question 6
-#True or false question
-def main(): #functions definitions: help from pogil 13
-    print("6. A square has a side that measures 4.")
-    print("The perimeter of the square is", 4 * 4) #prints the perimeter: '16'
+    # Question 6
+    favorite_animal = input("6. Enter the name of your favorite animal: ")
+    x = 1
+    while x < 18:
+        print(favorite_animal)
+        x = x + 1
+    question_6 = input("How many times is the word repeated? Enter a "
+                       "number. Do not lean into the screen.")
+    question6_answer = '17'
 
-main() # call to main
-time.sleep(1)
+    if question_6 == question6_answer:
+        print("Correct!")
+        score += 1
+    else:
+        print("It was repeated 17 times. Don't worry if you got it wrong, "
+              "it's easy to get lost.")
+    time.sleep(1)
 
-question_6 = input("Is this True or False? Enter T or F.")
-answer = 'T'
-answer_2 = 't'
+    # Question 7
+    print("7. How many members are in the boyband BTS?")
+    question_7 = int(input("Please enter a number, no letters."))
+    question7_answer = 7
+    if question_7 == question7_answer:
+        print("YESSS!")
+        score += 1
+    else:
+        print("There are 7 members in BTS.")
+    time.sleep(1)
 
-#if and else statements to determine the output for wrong and right answers
-if question_6 == answer or question_6 == answer_2 : #player might input t or T as the answer
-    print("Correct!")
-    score += 1 # player answers a question correctly: 1 added to their 'score'
-else: 
-    print("Incorrect. Remember that perimeter is the sum of all sides.") #if they get it wrong, they're reminded of perimeter
-time.sleep(1)
+    # Question 8
+    print("8. Sarah took 6, divided it by 2 and then squared it. Then she "
+          "subtracted 3. Her final number was: ")
+    print((6 / 2) ** 2 - 3)
+    question_8 = input("Is this True or False? Enter T or F.")
+    q8_answer1 = 'T'
+    q8_answer2 = 't'
 
+    if question_8 == q8_answer1 or question_8 == q8_answer2:
+        print("Correct!")
+        score += 1
+    else:
+        print("Incorrect.")
+    time.sleep(1)
 
-# Question 7
+    # Question 9
+    question_9 = input(
+        "9. A clerk at a butcher shop stands five feet ten inches tall and "
+        "wears size 13 sneakers. What does he weigh?")
+    q9_answer1 = 'meat'
+    q9_answer2 = 'Meat'
+    if question_9 == q9_answer1 or question_9 == q9_answer2:
+        print("YES! Good job!")
+        score += 1
+    else:
+        print("He weighs meat. Nice try!")
+    time.sleep(1)
 
-print("7. Sarah took 6, divided it by 2 and then squared it. Then she subtracted 3. Her final number was: ")
-print((6 / 2) ** 2 - 3) #calculates the math indicated
-question_7 = input("Is this True or False? Enter T or F.")
-answer = 'T'
-answer_2 = 't'
+    # Question 10
+    question_10 = input("10. What is 64 to the .5 power? Enter a number.")
+    question10_answer = '8'
+    if question_10 == question10_answer:
+        print("Correct!")
+        score += 1
+    elif question_10 != question10_answer:
+        print("Sorry, the correct answer is 8.")
+    time.sleep(1)
 
-#if and else statements to determine the output for wrong and right answers
-if question_7 == answer or question_7 == answer_2 : #tells them if they're right or wrong
-    print("Correct!")
-    score += 1 # player answers a question correctly: 1 added to their 'score'
-else:
-    print("Incorrect.")
+    # Final Score
+    print("That was the last question.")
+    time.sleep(1)
 
+    final_score = score * 10
+    print("Your scored a: ")
+    time.sleep(1)
+    print(".......")
+    time.sleep(1)
+    print(final_score, "%")
 
+    time.sleep(1)
 
-
-
-
-##### These are repeats of previous questions, I will change them. I just needed to have 10 to calcuate the score at the end.
-##### I wanted to make sure the final score was correct
-
-# Question 8
-question_1 = int(input("8. Divide 46 in half and add 12. What is the answer?"))
-question1_answer = 35
-if question_1 == question1_answer:
-    print("Correct!")
-    score += 1
-else:
-    print("Sorry,the correct answer is 35.")
-time.sleep(1)
-
-# Question 9
-question_2 = int(input("9. What is 64 to the .5 power?"))
-question2_answer = 8
-if question_2 == question2_answer:
-    print("Correct!")
-    score += 1
-else:
-    print("Sorry, the correct answer is 8.")
-time.sleep(1)
-
-
-# Question 10
-question_1 = int(input("10. Divide 46 in half and add 12. What is the answer?"))
-question1_answer = 35
-if question_1 == question1_answer:
-    print("Correct!")
-    score += 1
-else:
-    print("Sorry,the correct answer is 35.")
-time.sleep(1)
-
-
-
-
-
-
-#To calcualte the final score for the player when they finish the quiz
-#multiply the overall score by the amount of questions to find final score 
-final_score = score * 10
-print("Final Score is: ")
-time.sleep(1)
-print(".......")
-# I put '%' to show player their percentage score at the end of the game
-print(score * 10,("%"))
-
-#farewell for finishing the game. Words of encouragement
-#if and elif statements to determine the output for wrong and right answers
-if score > 7: #Boolean expressions
-    print("Awesome!! Thank you for Playing!")
-elif score <= 6:
-    print("Good Job! Thank you for Playing!")
-
-
-
-
-
-    
+    if score >= 8:
+        print("Awesome score!! Thank you for Playing!")
+    elif 7 >= score > 5:
+        print("Good Job! Thank you for Playing!")
+    else:
+        print("Better luck next time!")
+        print("Thank you for Playing!")
 
 
-
-
-
-    
-
-
-
-
-      
+main()
