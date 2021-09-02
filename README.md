@@ -1,2 +1,2 @@
 # 1500-Integration
-spring 2020 intro to computer science project
+Spring 2020 intro to computer science project
